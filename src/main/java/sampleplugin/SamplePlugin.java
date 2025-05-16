@@ -8,6 +8,7 @@ public final class SamplePlugin extends JavaPlugin {
     //プラグインが有効になったときに、処理したいやつ
     @Override
     public void onEnable() {
+        //「/helloworld」コマンドがHelloWorldクラスだと定義させるもの
         getCommand("helloworld").setExecutor(new HelloWorld());
 
         getLogger().info("プラグインが有効になりました");
