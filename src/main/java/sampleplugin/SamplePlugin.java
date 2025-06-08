@@ -1,7 +1,9 @@
 package sampleplugin;
 
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import sampleplugin.command.HelloWorld;
+import sampleplugin.listener.PlayerMoveListener;
 
 public final class SamplePlugin extends JavaPlugin {
 
@@ -10,6 +12,8 @@ public final class SamplePlugin extends JavaPlugin {
     public void onEnable() {
         //「/helloworld」コマンドがHelloWorldクラスだと定義させるもの
         getCommand("helloworld").setExecutor(new HelloWorld());
+        PluginManager plm = getServer().getPluginManager();
+        plm.registerEvents(new PlayerMoveListener(), this);
 
         getLogger().info("プラグインが有効になりました");
     }
